@@ -26,9 +26,17 @@
     height: 300px;
 
     .date-info {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0;
+        margin-left: 20px;
+      }
       i {
         font-size: 20px;
         color: #7a7a7b;
+        margin-right: 10px;
       }
     }
     textarea {

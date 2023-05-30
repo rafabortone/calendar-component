@@ -11,6 +11,8 @@ export class CalendarPanelComponent implements OnInit {
   openForm: boolean = false;
   dateTimeSelected;
 
+  @Input() schedule;
+
   constructor(private calendarService: CalendarService) {}
   hourList = [
     { time: 1, period: "AM" },

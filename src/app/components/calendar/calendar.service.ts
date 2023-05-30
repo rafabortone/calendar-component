@@ -4,6 +4,7 @@ import * as data from "../../../../mock/data.json";
   providedIn: "root",
 })
 export class CalendarService {
+  form;
   constructor() {}
 
   public weekDays = [
@@ -64,8 +65,20 @@ export class CalendarService {
       });
     }
 
-    console.log(calendar);
-
     return calendar;
+  }
+
+  saveAppointment(form) {
+    let schedule = [];
+    if (!localStorage.getItem("schedule")) {
+      schedule.push(form);
+      localStorage.setItem("schedule", JSON.stringify(schedule));
+    } else {
+      schedule = JSON.parse(localStorage.getItem("schedule"));
+      schedule.push(form);
+      localStorage.setItem("schedule", JSON.stringify(schedule));
+    }
+
+    return "Success";
   }
 }

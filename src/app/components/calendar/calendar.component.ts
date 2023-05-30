@@ -33,6 +33,7 @@ export class CalendarComponent implements OnInit {
     monthName: this.calendarService.monthNames[new Date().getMonth()],
   };
   days;
+  schedule = [];
 
   constructor(private calendarService: CalendarService) {}
 
@@ -48,7 +49,22 @@ export class CalendarComponent implements OnInit {
 
     setTimeout(() => {
       this.calendarService.setDaySelected(this.selectedDay);
+      this.getSchedule();
     }, 500);
+  }
+
+  getSchedule() {
+    let scheduleDay = [];
+    if (localStorage.getItem("schedule")) {
+      this.schedule = JSON.parse(localStorage.getItem("schedule"));
+      this.schedule.forEach((item) => {
+        if (item.date == this.selectedDay.date) {
+          scheduleDay.push(item);
+        }
+      });
+
+      this.schedule = scheduleDay;
+    }
   }
 
   previousMonth() {
@@ -68,5 +84,6 @@ export class CalendarComponent implements OnInit {
   setSelectedDay(day) {
     this.selectedDay = day;
     this.calendarService.setDaySelected(this.selectedDay);
+    this.getSchedule();
   }
 }
