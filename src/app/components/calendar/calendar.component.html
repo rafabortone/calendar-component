@@ -1,0 +1,24 @@
+<div class="calendar">
+  <mat-card class="calendar__content">
+    <mat-card-header class="calendar__header">
+      <label>
+        {{monthNames[currentMonth]}}
+        {{currentYear}}
+      </label>
+      <div class="icons">
+        <i class="ri-arrow-left-s-line" (click)="previousMonth()" title="Previous month"></i>
+        <i class="ri-arrow-right-s-line" (click)="nextMonth()" title="Next month"></i>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="days-list">
+      <div *ngFor="let weekkDay of weekkDays" class="days-list">
+        <div class="day">{{weekkDay}}</div>
+      </div>
+      <div *ngFor="let day of days" class="day {{day.today ? 'today' : '' }} {{selectedDay == day ? 'selected' : ''}}"
+        (click)="setSelectedDay(day)">
+        {{day.day}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <app-calendar-panel class="hours-list"></app-calendar-panel>
+</div>

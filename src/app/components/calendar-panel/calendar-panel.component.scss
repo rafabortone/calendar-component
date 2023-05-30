@@ -1,0 +1,23 @@
+.calendar-panel {
+  padding-left: 20px;
+
+  .title-day {
+    background-color: #0063be;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      margin: 0;
+      color: #fff;
+    }
+  }
+  .mat-list-item {
+    cursor: pointer;
+    border-bottom: 1px solid #dedede;
+    height: 60px;
+  }
+}
