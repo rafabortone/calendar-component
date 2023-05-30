@@ -7,4 +7,5 @@
     <mat-list-item *ngFor="let hour of hourList" (click)="openCard(hour)">{{hour.time}} {{hour.period}}</mat-list-item>
   </mat-list>
 </div>
-<app-calendar-card [dateTimeSelected]="dateTimeSelected" *ngIf="openForm"></app-calendar-card>
+<app-calendar-card (toggleForm)="toogleCard($event)" [dateTimeSelected]="dateTimeSelected" *ngIf="openForm">
+</app-calendar-card>

@@ -16,6 +16,21 @@ export class CalendarService {
     "Saturday",
   ];
 
+  public monthNames = [
+    "January ",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "december",
+  ];
+
   selectedDay = new EventEmitter();
 
   setDaySelected(day) {
@@ -45,6 +60,7 @@ export class CalendarService {
           year === new Date().getFullYear(),
 
         weekDay: this.weekDays[dataObj.getDay()],
+        monthName: this.monthNames[month],
       });
     }
 

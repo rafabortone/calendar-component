@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { CalendarService } from "../calendar/calendar.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-calendar-card",
@@ -7,9 +9,34 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class CalendarCardComponent implements OnInit {
   @Input() dateTimeSelected;
-  constructor() {}
+  @Output() toggleForm = new EventEmitter();
+  constructor(private calendarService: CalendarService) {}
+
+  formCalendar = new FormGroup({
+    title: new FormControl("", Validators.required),
+    date: new FormControl("", Validators.required),
+    time: new FormControl("", Validators.required),
+    period: new FormControl(""),
+    description: new FormControl("", Validators.required),
+  });
 
   ngOnInit() {
-    console.log(this.dateTimeSelected);
+    this.formCalendar.controls["date"].setValue(
+      this.dateTimeSelected.date.date
+    );
+    this.formCalendar.controls["time"].setValue(
+      this.dateTimeSelected.time.time
+    );
+    this.formCalendar.controls["period"].setValue(
+      this.dateTimeSelected.time.period
+    );
+  }
+
+  onSubmit() {
+    console.log(this.formCalendar.value);
+  }
+
+  close() {
+    this.toggleForm.emit(false);
   }
 }

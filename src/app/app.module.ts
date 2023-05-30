@@ -10,6 +10,9 @@ import { MatCardModule } from "@angular/material/card";
 import { CalendarPanelComponent } from "./components/calendar-panel/calendar-panel.component";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,12 @@ import { MatListModule } from "@angular/material/list";
     MatCardModule,
     MatDividerModule,
     MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
+  exports: [FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

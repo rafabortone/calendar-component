@@ -1,9 +1,28 @@
 <div class="calendar-card">
+
   <h3>
     New appointment
+    <i class="ri-close-line" (click)="close()"></i>
   </h3>
 
-  <form>
+  <form [formGroup]="formCalendar">
+    <mat-form-field class="example-full-width">
+      <mat-label>Add title</mat-label>
+      <input matInput formControlName="title" required>
+    </mat-form-field>
 
+    <label class="date-info">
+      <i class="ri-time-line"></i> {{dateTimeSelected.date.weekDay}}, {{dateTimeSelected.date.monthName}}
+      {{dateTimeSelected.date.day}}
+    </label>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button type="button" class="btn-save" [disabled]=" !formCalendar.valid" (click)="onSubmit()">Save</button>
+    </div>
   </form>
 </div>

@@ -30,6 +30,7 @@ export class CalendarComponent implements OnInit {
     today: true,
     date: new Date().toISOString().split("T")[0],
     weekDay: this.calendarService.weekDays[new Date().getDay()],
+    monthName: this.calendarService.monthNames[new Date().getMonth()],
   };
   days;
 
