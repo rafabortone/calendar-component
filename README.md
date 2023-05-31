@@ -1,4 +1,10 @@
 # MyCalendarApp
+Calendar component
+A calendar component made with Angular. List appointments of the day. Register new appointment of the day.
+Drag and Drop form screen
+Angular | Scss | Angular Material | Angular CDK | Reactive forms
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
