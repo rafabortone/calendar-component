@@ -16,6 +16,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { SuccessMessageComponent } from "./components/success-message/success-message.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { MatSelectModule } from "@angular/material/select";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
     MatFormFieldModule,
     MatDialogModule,
     DragDropModule,
+    MatSelectModule,
   ],
   exports: [FormsModule, ReactiveFormsModule],
   providers: [],

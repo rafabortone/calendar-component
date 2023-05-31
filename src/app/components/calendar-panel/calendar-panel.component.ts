@@ -66,10 +66,10 @@ export class CalendarPanelComponent implements OnInit {
 
   toogleCard(e) {
     this.openForm = e;
-    this.refreshComponent.emit(true);
     if (!e) {
       this.scheduleSelected = [];
       this.dateTimeSelected = null;
     }
+    this.refreshComponent.emit(true);
   }
 }

@@ -11,7 +11,7 @@
       <input matInput formControlName="title" required>
     </mat-form-field>
 
-    <label class="date-info">
+    <div class="date-info">
       <i class="ri-time-line"></i> {{dateTimeSelected?.date?.weekDay}}, {{dateTimeSelected?.date?.monthName}}
       {{dateTimeSelected?.date?.day}}
       <span class="time-inputs">
@@ -24,8 +24,20 @@
           <mat-label>End</mat-label>
           <input matInput formControlName="timeFinish" required>
         </mat-form-field>
+        <mat-form-field>
+          <mat-label>Period</mat-label>
+          <mat-select formControlName="period">
+            <mat-option value="AM">
+              AM
+            </mat-option>
+            <mat-option value="PM">
+              PM
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </span>
-    </label>
+    </div>
+
 
     <mat-form-field>
       <mat-label>Description</mat-label>
