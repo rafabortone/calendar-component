@@ -25,7 +25,8 @@
       <button type="button" (click)="toogleCard(true)">Add appointment</button>
     </div>
   </div>
-  <app-calendar-panel [schedule]="schedule" class="hours-list"></app-calendar-panel>
+  <app-calendar-panel [schedule]="schedule" (refreshComponent)="refreshComponent($event)" class="hours-list">
+  </app-calendar-panel>
 </div>
 <app-calendar-card (toggleForm)="toogleCard($event)" [dateTimeSelected]="dateTimeSelected" *ngIf="openForm">
 </app-calendar-card>

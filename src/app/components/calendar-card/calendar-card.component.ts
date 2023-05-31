@@ -45,6 +45,8 @@ export class CalendarCardComponent implements OnInit {
         this.scheduleSelected.description
       );
     } else {
+      console.log(this.dateTimeSelected);
+
       if (this.dateTimeSelected && this.dateTimeSelected.time) {
         this.formCalendar.controls["timeStart"].setValue(
           this.dateTimeSelected.time.time
@@ -55,11 +57,16 @@ export class CalendarCardComponent implements OnInit {
         this.formCalendar.controls["period"].setValue(
           this.dateTimeSelected.time.period
         );
+        this.formCalendar.controls["date"].setValue(
+          this.dateTimeSelected.date.date
+        );
       }
     }
   }
 
   onSubmit() {
+    console.log(this.formCalendar.value);
+
     let response = this.calendarService.saveAppointment(
       this.formCalendar.value
     );

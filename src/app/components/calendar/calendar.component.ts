@@ -94,4 +94,8 @@ export class CalendarComponent implements OnInit {
     this.openForm = e;
     this.dateTimeSelected = { date: this.selectedDay };
   }
+
+  refreshComponent(e) {
+    this.getDaysCalendar();
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { CalendarService } from "../calendar/calendar.service";
 
 @Component({
@@ -13,6 +13,7 @@ export class CalendarPanelComponent implements OnInit {
   scheduleSelected = [];
 
   @Input() schedule;
+  @Output() refreshComponent = new EventEmitter();
 
   constructor(private calendarService: CalendarService) {}
   hourList = [
@@ -65,6 +66,7 @@ export class CalendarPanelComponent implements OnInit {
 
   toogleCard(e) {
     this.openForm = e;
+    this.refreshComponent.emit(true);
     if (!e) {
       this.scheduleSelected = [];
       this.dateTimeSelected = null;
