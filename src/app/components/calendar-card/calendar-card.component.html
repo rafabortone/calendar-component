@@ -12,12 +12,19 @@
     </mat-form-field>
 
     <label class="date-info">
-      <i class="ri-time-line"></i> {{dateTimeSelected.date.weekDay}}, {{dateTimeSelected.date.monthName}}
-      {{dateTimeSelected.date.day}}
-      <p>
-        {{dateTimeSelected.time.time}}:00 {{dateTimeSelected.time.period}} -
-        {{dateTimeSelected.time.time + 1}}:00 {{dateTimeSelected.time.period}}
-      </p>
+      <i class="ri-time-line"></i> {{dateTimeSelected?.date?.weekDay}}, {{dateTimeSelected?.date?.monthName}}
+      {{dateTimeSelected?.date?.day}}
+      <span class="time-inputs">
+        <mat-form-field>
+          <mat-label>start</mat-label>
+          <input matInput formControlName="timeStart" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>End</mat-label>
+          <input matInput formControlName="timeFinish" required>
+        </mat-form-field>
+      </span>
     </label>
 
     <mat-form-field>

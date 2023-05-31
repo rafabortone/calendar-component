@@ -5,7 +5,7 @@
   <div>{{selectedDay?.weekDay}}</div>
   <mat-list>
     <mat-list-item *ngFor="let hour of hourList" (click)="openCard(hour)">{{hour.time}} {{hour.period}}
-      <div *ngFor="let item of schedule" (click)="openCardWithInfo(item)">
+      <div *ngFor="let item of schedule" (click)="openCardWithInfo(item, $event)">
         <div *ngIf="item.timeStart == hour.time && item.period == hour.period" class="appointment">
           <p>
             {{item.title}}
@@ -16,5 +16,6 @@
     </mat-list-item>
   </mat-list>
 </div>
-<app-calendar-card (toggleForm)="toogleCard($event)" [dateTimeSelected]="dateTimeSelected" *ngIf="openForm">
+<app-calendar-card (toggleForm)="toogleCard($event)" [scheduleSelected]="scheduleSelected"
+  [dateTimeSelected]="dateTimeSelected" *ngIf="openForm">
 </app-calendar-card>

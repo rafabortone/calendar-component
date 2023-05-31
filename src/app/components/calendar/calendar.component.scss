@@ -58,4 +58,19 @@
   .hours-list {
     width: 100%;
   }
+
+  .btn-new {
+    width: 100%;
+    padding: 30px 0;
+
+    button {
+      background-color: #ff9100;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  }
 }

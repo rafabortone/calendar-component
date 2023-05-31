@@ -10,6 +10,7 @@ export class CalendarPanelComponent implements OnInit {
   selectedDay;
   openForm: boolean = false;
   dateTimeSelected;
+  scheduleSelected = [];
 
   @Input() schedule;
 
@@ -55,11 +56,18 @@ export class CalendarPanelComponent implements OnInit {
     this.dateTimeSelected = { date: this.selectedDay, time: hourSelected };
   }
 
-  openCardWithInfo(info) {
-    console.log(info);
+  openCardWithInfo(info, event) {
+    event.stopPropagation();
+    this.scheduleSelected = info;
+    this.dateTimeSelected = { date: this.selectedDay, time: info.timeStart };
+    this.toogleCard(true);
   }
 
   toogleCard(e) {
     this.openForm = e;
+    if (!e) {
+      this.scheduleSelected = [];
+      this.dateTimeSelected = null;
+    }
   }
 }

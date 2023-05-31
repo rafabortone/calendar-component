@@ -12,6 +12,7 @@ import { CdkDrag } from "@angular/cdk/drag-drop";
 })
 export class CalendarCardComponent implements OnInit {
   @Input() dateTimeSelected;
+  @Input() scheduleSelected;
   @Output() toggleForm = new EventEmitter();
   constructor(
     private calendarService: CalendarService,
@@ -28,18 +29,34 @@ export class CalendarCardComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.formCalendar.controls["date"].setValue(
-      this.dateTimeSelected.date.date
-    );
-    this.formCalendar.controls["timeStart"].setValue(
-      this.dateTimeSelected.time.time
-    );
-    this.formCalendar.controls["timeFinish"].setValue(
-      this.dateTimeSelected.time.time + 1
-    );
-    this.formCalendar.controls["period"].setValue(
-      this.dateTimeSelected.time.period
-    );
+    if (this.scheduleSelected && this.scheduleSelected.title) {
+      this.formCalendar.controls["title"].setValue(this.scheduleSelected.title);
+      this.formCalendar.controls["date"].setValue(this.scheduleSelected.date);
+      this.formCalendar.controls["timeStart"].setValue(
+        this.scheduleSelected.timeStart
+      );
+      this.formCalendar.controls["timeFinish"].setValue(
+        this.scheduleSelected.timeFinish
+      );
+      this.formCalendar.controls["period"].setValue(
+        this.scheduleSelected.period
+      );
+      this.formCalendar.controls["description"].setValue(
+        this.scheduleSelected.description
+      );
+    } else {
+      if (this.dateTimeSelected && this.dateTimeSelected.time) {
+        this.formCalendar.controls["timeStart"].setValue(
+          this.dateTimeSelected.time.time
+        );
+        this.formCalendar.controls["timeFinish"].setValue(
+          this.dateTimeSelected.time.time + 1
+        );
+        this.formCalendar.controls["period"].setValue(
+          this.dateTimeSelected.time.period
+        );
+      }
+    }
   }
 
   onSubmit() {
@@ -62,6 +79,7 @@ export class CalendarCardComponent implements OnInit {
   }
 
   close() {
+    this.scheduleSelected = [];
     this.toggleForm.emit(false);
   }
 }

@@ -34,6 +34,8 @@ export class CalendarComponent implements OnInit {
   };
   days;
   schedule = [];
+  openForm: boolean = false;
+  dateTimeSelected;
 
   constructor(private calendarService: CalendarService) {}
 
@@ -50,6 +52,7 @@ export class CalendarComponent implements OnInit {
 
     setTimeout(() => {
       this.calendarService.setDaySelected(this.selectedDay);
+      this.getSchedule();
     }, 500);
   }
 
@@ -85,5 +88,10 @@ export class CalendarComponent implements OnInit {
     this.selectedDay = day;
     this.calendarService.setDaySelected(this.selectedDay);
     this.getSchedule();
+  }
+
+  toogleCard(e) {
+    this.openForm = e;
+    this.dateTimeSelected = { date: this.selectedDay };
   }
 }
