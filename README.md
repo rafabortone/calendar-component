@@ -4,7 +4,7 @@ A calendar component made with Angular. List appointments of the day. Register n
 Drag and Drop form screen
 Angular | Scss | Angular Material | Angular CDK | Reactive forms
 
-
+![Alt text](Screenshot_9.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
