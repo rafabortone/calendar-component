@@ -55,6 +55,10 @@ export class CalendarPanelComponent implements OnInit {
     this.dateTimeSelected = { date: this.selectedDay, time: hourSelected };
   }
 
+  openCardWithInfo(info) {
+    console.log(info);
+  }
+
   toogleCard(e) {
     this.openForm = e;
   }

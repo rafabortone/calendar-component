@@ -39,6 +39,7 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
     this.getDaysCalendar();
+    this.getSchedule();
   }
 
   getDaysCalendar() {
@@ -49,7 +50,6 @@ export class CalendarComponent implements OnInit {
 
     setTimeout(() => {
       this.calendarService.setDaySelected(this.selectedDay);
-      this.getSchedule();
     }, 500);
   }
 

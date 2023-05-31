@@ -5,9 +5,11 @@
   <div>{{selectedDay?.weekDay}}</div>
   <mat-list>
     <mat-list-item *ngFor="let hour of hourList" (click)="openCard(hour)">{{hour.time}} {{hour.period}}
-      <div *ngFor="let item of schedule">
-        <div *ngIf="item.timeStart == hour.time && item.period == hour.period">
-          {{item.title}}
+      <div *ngFor="let item of schedule" (click)="openCardWithInfo(item)">
+        <div *ngIf="item.timeStart == hour.time && item.period == hour.period" class="appointment">
+          <p>
+            {{item.title}}
+          </p>
           {{item.timeStart}}:00 - {{item.timeFinish}}:00 {{item.period}}
         </div>
       </div>

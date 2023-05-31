@@ -19,5 +19,16 @@
     cursor: pointer;
     border-bottom: 1px solid #dedede;
     height: 60px;
+
+    .appointment {
+      width: 100%;
+      margin-left: 20px;
+      background-color: #0063be;
+      border-radius: 4px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
   }
 }
